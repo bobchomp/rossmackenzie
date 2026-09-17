@@ -37,9 +37,6 @@
     background: linear-gradient(-45deg, var(--white), var(--sky-1), var(--sky-3), var(--sky-2), var(--white));
     background-size: 400% 400%;
     animation: driftGradient 22s ease-in-out infinite;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
   }
 
   @keyframes driftGradient {
@@ -89,7 +86,7 @@
   main {
     position: relative;
     z-index: 1;
-    flex: 1;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ross Mackenzie</title>
+<meta name="description" content="Look for yourself, and you will find in the long run only hatred, loneliness, despair, rage, ruin, and decay. But look for Christ and you will find Him, and with Him everything else thrown in. — C.S. Lewis">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%9D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  :root {
+    --sky-1: #eaf4fb;
+    --sky-2: #d9ecfa;
+    --sky-3: #c9e4f7;
+    --white: #ffffff;
+    --ink: #2b3a49;
+    --ink-soft: #5b7086;
+    --accent: #7fb3d5;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    height: 100%;
+  }
+
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--ink);
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, var(--white), var(--sky-1), var(--sky-3), var(--sky-2), var(--white));
+    background-size: 400% 400%;
+    animation: driftGradient 22s ease-in-out infinite;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @keyframes driftGradient {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* soft floating light for depth, kept very subtle */
+  .glow {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.5;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .glow-a {
+    width: 42vw;
+    height: 42vw;
+    top: -10vw;
+    left: -10vw;
+    background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,0) 70%);
+    animation: floatA 26s ease-in-out infinite;
+  }
+
+  .glow-b {
+    width: 38vw;
+    height: 38vw;
+    bottom: -12vw;
+    right: -8vw;
+    background: radial-gradient(circle, var(--sky-3) 0%, rgba(201,228,247,0) 70%);
+    animation: floatB 30s ease-in-out infinite;
+  }
+
+  @keyframes floatA {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(4vw, 3vw); }
+  }
+
+  @keyframes floatB {
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-3vw, -4vw); }
+  }
+
+  header {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 2rem 2rem 0;
+    display: flex;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 0.2s forwards;
+  }
+
+  header span {
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+
+  main {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+
+  .quote-wrap {
+    max-width: 760px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: fadeUp 1.4s ease-out 0.5s forwards;
+  }
+
+  .mark {
+    font-size: 3.5rem;
+    line-height: 1;
+    color: var(--accent);
+    font-weight: 300;
+    display: block;
+    margin-bottom: 0.5rem;
+    opacity: 0.75;
+  }
+
+  blockquote {
+    font-size: clamp(1.35rem, 3.4vw, 2.1rem);
+    font-weight: 300;
+    line-height: 1.55;
+    color: var(--ink);
+    letter-spacing: 0.01em;
+  }
+
+  cite {
+    display: block;
+    margin-top: 2.25rem;
+    font-style: normal;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  cite::before {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--accent);
+    opacity: 0.6;
+    margin: 0 auto 1.25rem;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 1.5rem;
+    opacity: 0;
+    animation: fadeDown 1.2s ease-out 0.9s forwards;
+  }
+
+  footer span {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+    opacity: 0.7;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body, .glow-a, .glow-b { animation: none; }
+    header, .quote-wrap, footer { animation: none; opacity: 1; transform: none; }
+  }
+
+  @media (max-width: 480px) {
+    header { padding: 1.5rem 1.5rem 0; }
+    .mark { font-size: 2.75rem; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+
+  <header>
+    <span>Ross Mackenzie</span>
+  </header>
+
+  <main>
+    <div class="quote-wrap">
+      <span class="mark" aria-hidden="true">&ldquo;</span>
+      <blockquote>
+        Look for yourself, and you will find in the long run only hatred, loneliness, despair, rage, ruin, and decay. But look for Christ and you will find Him, and with Him everything else thrown in.
+      </blockquote>
+      <cite>C.&thinsp;S.&thinsp;Lewis</cite>
+    </div>
+  </main>
+
+  <footer>
+    <span>&copy; <span id="year"></span> Ross Mackenzie</span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

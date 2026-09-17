@@ -119,6 +119,10 @@
     letter-spacing: 0.01em;
   }
 
+  blockquote.poem {
+    font-size: clamp(1.05rem, 2.3vw, 1.55rem);
+  }
+
   cite {
     display: block;
     margin-top: 2.25rem;
@@ -172,6 +176,10 @@
 
   @media (max-width: 480px) {
     .mark { font-size: 2.75rem; }
+
+    blockquote.poem {
+      font-size: clamp(0.78rem, 3.6vw, 0.95rem);
+    }
   }
 </style>
 </head>
@@ -183,15 +191,36 @@
   <main>
     <div class="quote-wrap">
       <span class="mark" aria-hidden="true">&ldquo;</span>
-      <blockquote>
+      <blockquote id="quote-text">
         Look for yourself, and you will find in the long run only hatred, loneliness, despair, rage, ruin, and decay. But look for Christ and you will find Him, and with Him everything else thrown in.
       </blockquote>
-      <cite>C.&thinsp;S.&thinsp;Lewis</cite>
+      <cite id="quote-cite">C.&thinsp;S.&thinsp;Lewis</cite>
     </div>
   </main>
 
   <footer>
     <span>Quotations are the property of their respective authors</span>
   </footer>
+
+  <script>
+    (function () {
+      var quotes = [
+        {
+          html: "Look for yourself, and you will find in the long run only hatred, loneliness, despair, rage, ruin, and decay. But look for Christ and you will find Him, and with Him everything else thrown in.",
+          cite: "C. S. Lewis"
+        },
+        {
+          html: "Only one life, twill soon be past,<br>Only what’s done for Christ will last.<br>And when I am dying, how happy, I’ll be,<br>If the lamp of my life has been burned out for Thee.",
+          cite: "Charles Studd",
+          poem: true
+        }
+      ];
+      var pick = quotes[Math.floor(Math.random() * quotes.length)];
+      var quoteEl = document.getElementById('quote-text');
+      quoteEl.innerHTML = pick.html;
+      quoteEl.classList.toggle('poem', !!pick.poem);
+      document.getElementById('quote-cite').textContent = pick.cite;
+    })();
+  </script>
 </body>
 </html>

@@ -86,25 +86,6 @@
     50%      { transform: translate(-3vw, -4vw); }
   }
 
-  header {
-    position: relative;
-    z-index: 1;
-    width: 100%;
-    padding: 2rem 2rem 0;
-    display: flex;
-    justify-content: center;
-    opacity: 0;
-    animation: fadeDown 1.2s ease-out 0.2s forwards;
-  }
-
-  header span {
-    font-size: 0.85rem;
-    font-weight: 500;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
   main {
     position: relative;
     z-index: 1;
@@ -189,11 +170,10 @@
 
   @media (prefers-reduced-motion: reduce) {
     body, .glow-a, .glow-b { animation: none; }
-    header, .quote-wrap, footer { animation: none; opacity: 1; transform: none; }
+    .quote-wrap, footer { animation: none; opacity: 1; transform: none; }
   }
 
   @media (max-width: 480px) {
-    header { padding: 1.5rem 1.5rem 0; }
     .mark { font-size: 2.75rem; }
   }
 </style>
@@ -202,10 +182,6 @@
 
   <div class="glow glow-a"></div>
   <div class="glow glow-b"></div>
-
-  <header>
-    <span>Ross Mackenzie</span>
-  </header>
 
   <main>
     <div class="quote-wrap">
@@ -218,11 +194,7 @@
   </main>
 
   <footer>
-    <span>&copy; <span id="year"></span> Ross Mackenzie &middot; quotations are the property of their respective authors</span>
+    <span>Quotations are the property of their respective authors</span>
   </footer>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
